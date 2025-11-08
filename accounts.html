@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Account Page</title>
+    <link rel="stylesheet" href="accounts.css">
+    <link rel="stylesheet" href="media-queries.css">
+</head>
+<body>
+  <header id="header">
+      <div class="left-header">
+          Thread & Clay.
+      </div>
+
+        <div class="middle-header">
+          <a style="all:unset;" href="index.html"><div>Home</div></a>
+          <div class="dropdown-menu">
+              Shop <img src="icons/caret-down-white-icon.svg"> 
+            <div class="dropdown">
+              <p><a style="all:unset;" href="paintings.html">Paintings</a></p>
+              <p><a style="all:unset;" href="pottery.html">Pottery</a></p>
+              <p><a style="all:unset;" href="weaving.html">Weavings</a></p>
+
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            Pages <img src="icons/caret-down-white-icon.svg"> 
+            <div class="dropdown">
+              <p><a style="all:unset;" href="#about">About us</a></p>
+              <p><a style="all:unset;" href="#contact-us">Contact us</a></p>
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            Blog <img src="icons/caret-down-white-icon.svg"> 
+            <div class="dropdown">
+              <p><a style="all:unset;">Single Post</a></p>
+              <p><a style="all:unset;">Search results</a></p>
+              <p><a style="all:unset;">Post comments</a></p>
+
+            </div>
+          </div>
+        </div>
+
+      <div class="right-header">
+          <input class="search-box" type="text" placeholder="Search products...">
+          <button class="search-icon">
+              <img  src="icons/search-icon.svg">
+              <div class="tooltip">Search</div>
+          </button>
+          
+
+          <div class="account-sec">
+            <img class="account-icon" src="icons/account-white-icon.svg">
+            <div class="tooltip"> Account</div>
+          </div>
+
+          <a href="cart.html">
+              <div class="cart-container">
+                <img class="cart-icon" src="icons/shopping-cart-white-icon.svg">
+                <div class="count">3</div>
+              </div>
+          </a>
+
+      </div>
+    </header>
+
+  <div class="card">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form id="subscribeForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required placeholder="Enter your email">
+      </div>
+      <button type="submit">Subscribe</button>
+      <p class="message" id="successMessage">✅ Thanks for subscribing!</p>
+    </form>
+  </div>
+
+  <footer id="contact-us">
+      <div>
+        <h3>Email Us</h3>
+
+        <p>threadandclay@comapany.com</p>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <div class="contact-icons">
+          <img src="icons/instagram.svg">
+          <img src="icons/facebook.svg">
+          <img src="icons/tiktok.svg">
+          <img src="icons/x.svg">
+        </div>
+      </div>
+      <div>
+        <h3>Our Shop</h3>
+        <p>
+          Terms and Policy<br>
+          Contact Us<br>
+          Offers and Promotion<br>
+          Gift Cards<br>
+          Store and Opening Hours<br>
+        </p>
+      </div>
+      <div>
+        <h3>Links</h3>
+        <p>
+          <a href="#header" style="color: black;">Our Brand</a><br>
+          Career<br>
+          <a href="#about" style="color: black;">About</a><br>
+          Campaigns<br>
+        </p>
+      </div>
+      <div style="width: 60%;">
+        <h3>Our Location</h3>
+        <p>
+          Rush Green Campus, Dagenham Rd, Rush Green, Dagenham, United Kingdom<br>
+          138 Waterville Rd, Avon, United States<br>
+        </p>
+      </div>
+      <p>&copy; 2025 Thread & Clay. All rights reserved.</p>
+    </footer>
+
+  <script>
+    document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent page reload
+      let email = document.getElementById("email").value;
+
+      if(email) {
+        // For now just show success (later hook to backend/email service)
+        document.getElementById("successMessage").style.display = "block";
+        document.getElementById("email").value = "";
+      }
+    });
+  </script>
+</body>
+</html>
