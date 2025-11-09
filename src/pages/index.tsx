@@ -1,208 +1,502 @@
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+
+type PerformancePackage = {
+  id: string;
+  title: string;
+  blurb: string;
+  highlights: string[];
+};
+
+type Product = {
+  id: string;
+  title: string;
+  price: string;
+  image: string;
+  badge: string;
+};
+
+type Testimonial = {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+};
+
+const performancePackages: PerformancePackage[] = [
+  {
+    id: "immersion",
+    title: "Immersive Talking Drum Shows",
+    blurb:
+      "Arena-ready performances that blend Yoruba proverbs, call-and-response vocals, and cinematic percussion beds.",
+    highlights: ["5-piece rhythm ensemble", "Custom arrangements for brands", "In-ear monitor mix"],
+  },
+  {
+    id: "recording",
+    title: "Studio Sessions & Remote Tracking",
+    blurb:
+      "High-fidelity stems delivered from my Dolby Atmos-ready Lagos studio or on-site recording anywhere in the world.",
+    highlights: ["48hr turnaround", "Multi-mic phase aligned stems", "Optional sound design layers"],
+  },
+  {
+    id: "education",
+    title: "Workshops & Residencies",
+    blurb: "Cultural storytelling clinics tailored to conservatories, festivals, and corporate creativity labs.",
+    highlights: ["Curriculum design support", "Hybrid / virtual options", "Interactive percussion lab"],
+  },
+];
+
+const featuredProducts: Product[] = [
+  {
+    id: "signature-talking-drum",
+    title: "Signature Talking Drum",
+    price: "$420",
+    image: "/images/paint-prod1.jpg",
+    badge: "New",
+  },
+  {
+    id: "limited-print",
+    title: "Limited Vinyl Print",
+    price: "$65",
+    image: "/images/paint-prod3.jpg",
+    badge: "Signed",
+  },
+  {
+    id: "masterclass-pass",
+    title: "Masterclass Access",
+    price: "$180",
+    image: "/images/paint-prod5.jpg",
+    badge: "Live",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    id: "drummer-mag",
+    quote:
+      "“Ayo translates the language of the talking drum into modern pop frameworks without losing its ancestral pulse.”",
+    name: "Drummer Magazine",
+    role: "Global Rhythm Awards",
+  },
+  {
+    id: "producer",
+    quote: "“His stems drop into our DAW and sit perfectly in the mix—no editing required.”",
+    name: "Lola Peters",
+    role: "Head of Production, WaveForm Studios",
+  },
+  {
+    id: "tour",
+    quote: "“The audience interaction is unreal—book him if you want goosebumps during your encore.”",
+    name: "Marcus Levitt",
+    role: "Tour Director, Indigo Live",
+  },
+];
 
 export default function Home() {
-  const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const [processingProduct, setProcessingProduct] = useState<string | null>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-      setTimeout(() => setSubscribed(false), 3000);
-    }
+  const handleSubscribe = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email.trim()) return;
+    setSubscribed(true);
+    setEmail("");
+    setTimeout(() => setSubscribed(false), 3500);
+  };
+
+  const handleCheckout = (product: Product) => {
+    setProcessingProduct(product.id);
+    // Placeholder for Paystack + Firestore integration.
+    setTimeout(() => setProcessingProduct(null), 1200);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fafafa] font-sans">
-      {/* Header */}
-      <header
-        id="header"
-        className="flex flex-wrap justify-between items-center relative z-10 text-white bg-[rgba(123,36,36,0.84)] px-5 h-[90px] border-b border-white"
-      >
-        <div className="left-header w-1/3 text-2xl font-semibold font-newsreader">
-          Thread & Clay.
-        </div>
-        <nav className="middle-header flex justify-evenly gap-5 items-center w-2/5">
-          <a href="#" className="cursor-pointer">Home</a>
-          <div className="relative group dropdown-menu flex items-center gap-1">
+    <div className="min-h-screen flex flex-col bg-[#fafafa] font-sans text-gray-900">
+      <header className="flex flex-wrap items-center justify-between gap-6 bg-[rgba(123,36,36,0.92)] px-6 lg:px-12 py-4 text-white border-b border-white/30">
+        <Link href="/" className="text-2xl font-semibold tracking-wide font-newsreader">
+          Ayo Ogunlana
+        </Link>
+        <nav className="flex flex-wrap items-center gap-6 text-sm uppercase tracking-wide">
+          <Link href="/" className="hover:text-amber-200 transition-colors">
+            Home
+          </Link>
+          <Link href="/about" className="hover:text-amber-200 transition-colors">
+            About
+          </Link>
+          <Link href="/media" className="hover:text-amber-200 transition-colors">
+            Media
+          </Link>
+          <Link href="/shop" className="hover:text-amber-200 transition-colors">
             Shop
-            <Image src="/icons/caret-down-white-icon.svg" alt="" width={12} height={12} />
-            <div className="dropdown absolute left-0 top-full bg-neutral-700 text-white pt-2 rounded-md text-sm opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity min-w-max shadow-lg">
-              <a href="#" className="block px-6 py-2 hover:bg-neutral-800">Paintings</a>
-              <a href="#" className="block px-6 py-2 hover:bg-neutral-800">Pottery</a>
-              <a href="#" className="block px-6 py-2 hover:bg-neutral-800">Weavings</a>
-            </div>
-          </div>
-          <div className="relative group dropdown-menu flex items-center gap-1">
-            Pages
-            <Image src="/icons/caret-down-white-icon.svg" alt="" width={12} height={12} />
-            <div className="dropdown absolute left-0 top-full bg-neutral-700 text-white pt-2 rounded-md text-sm opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity min-w-max shadow-lg">
-              <a href="#about" className="block px-6 py-2 hover:bg-neutral-800">About us</a>
-              <a href="#contact-us" className="block px-6 py-2 hover:bg-neutral-800">Contact us</a>
-            </div>
-          </div>
-          <div className="relative group dropdown-menu flex items-center gap-1">
-            Blog
-            <Image src="/icons/caret-down-white-icon.svg" alt="" width={12} height={12} />
-            <div className="dropdown absolute left-0 top-full bg-neutral-700 text-white pt-2 rounded-md text-sm opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity min-w-max shadow-lg">
-              <span className="block px-6 py-2 hover:bg-neutral-800">Single Post</span>
-              <span className="block px-6 py-2 hover:bg-neutral-800">Search results</span>
-              <span className="block px-6 py-2 hover:bg-neutral-800">Post comments</span>
-            </div>
-          </div>
+          </Link>
+          <Link href="/bookings" className="hover:text-amber-200 transition-colors">
+            Bookings
+          </Link>
+          <Link href="/contact" className="hover:text-amber-200 transition-colors">
+            Contact
+          </Link>
         </nav>
-        <div className="right-header flex items-center w-1/3 justify-end gap-4 relative">
-          <input
-            className="search-box bg-transparent text-white h-[30px] w-2/3 border border-white border-r-0 pl-3 rounded-l-full outline-none placeholder-white"
-            type="text"
-            placeholder="Search products..."
-          />
-          <button className="search-icon bg-transparent border border-white border-l-0 h-[34px] rounded-r-full flex items-center px-2 relative">
-            <Image src="/icons/search-icon.svg" alt="Search" width={20} height={20} />
-            <span className="tooltip absolute bg-gray-500 text-white px-2 py-1 rounded text-xs bottom-[-40px] right-[-10px] opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap">
-              Search
+        <div className="flex items-center gap-4">
+          <form className="hidden md:flex items-center rounded-full border border-white/50 overflow-hidden">
+            <label htmlFor="site-search" className="sr-only">
+              Search site
+            </label>
+            <input
+              id="site-search"
+              type="search"
+              placeholder="Search performances…"
+              className="bg-transparent px-4 py-2 text-sm placeholder-white/70 focus:outline-none"
+            />
+            <button type="submit" className="px-3 py-2">
+              <Image src="/icons/search-icon.svg" alt="Search" width={18} height={18} />
+            </button>
+          </form>
+          <button type="button" aria-label="Account" className="relative group">
+            <Image src="/icons/account-white-icon.svg" alt="Account" width={32} height={32} />
+            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black/80 px-2 py-1 text-xs opacity-0 transition group-hover:opacity-100">
+              Artist Portal
             </span>
           </button>
-          <div className="account-sec relative flex items-center cursor-pointer">
-            <Image src="/icons/account-white-icon.svg" alt="Account" width={35} height={35} className="ml-5" />
-            <span className="tooltip absolute bg-gray-500 text-white px-2 py-1 rounded text-xs bottom-[-40px] right-[10px] opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap">
-              Account
+          <button type="button" aria-label="Cart" className="relative">
+            <Image src="/icons/shopping-cart-white-icon.svg" alt="Cart" width={32} height={32} />
+            <span className="absolute -top-2 -right-2 rounded-full bg-black px-2 py-0.5 text-[10px] font-semibold">
+              2
             </span>
-          </div>
-          <a href="#" className="relative">
-            <div className="cart-container relative">
-              <Image src="/icons/shopping-cart-white-icon.svg" alt="Cart" width={35} height={35} className="ml-5" />
-              <div className="count absolute -top-2 -right-2 px-2 py-1 bg-black text-white text-xs font-medium rounded-full">
-                3
-              </div>
-            </div>
-          </a>
+          </button>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="home flex flex-col justify-center items-center relative mt-0 mb-16 bg-cover bg-center bg-no-repeat h-[600px] w-full" style={{ backgroundImage: "url('/images/Beige Collage Minimalist Mood Board Instagram Post.svg')" }}>
-        <div id="about"></div>
-        <h2 className="z-10 text-3xl md:text-4xl font-bold text-white text-center drop-shadow-lg mb-4">
-          Dive into Creativity with our art collection
-        </h2>
-        <p className="z-10 text-lg md:text-xl text-white text-center mb-6 max-w-xl drop-shadow">
-          Handmade with love, crafted for you. Thread & Clay is inspired by earth, shaped by hand.
-        </p>
-        <button className="z-10 h-12 w-2/5 min-w-[150px] max-w-xs bg-[rgba(123,36,36,0.84)] text-white rounded-full transition hover:bg-black">
-          Go to shop
-        </button>
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-      </section>
-
-      {/* Bestsellers Section */}
-      <section className="sales-section py-12" id="best-sellers">
-        <h2 className="bestsellers text-2xl font-bold text-center mb-8">Bestsellers</h2>
-        <div className="product-showcase flex flex-wrap justify-center gap-8 px-4">
-          {/* Example product card */}
-          <div className="showcase bg-white rounded-lg shadow-md p-4 flex flex-col items-center w-full max-w-xs">
-            <Image src="/images/Vase-product.svg" alt="Vase" width={200} height={200} className="mb-4" />
-            <div className="details flex flex-col items-center gap-2 mb-4">
-              {/* ...product details here... */}
-              <span className="font-semibold">Vase</span>
-              <span className="text-gray-500">$45</span>
+      <main className="flex-1">
+        <section
+          id="hero"
+          className="relative isolate overflow-hidden bg-[url('/images/background-paintings.jpg')] bg-cover bg-center text-white"
+        >
+          <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+          <div className="relative z-10 mx-auto flex flex-col gap-10 px-6 py-24 text-center md:text-left lg:px-16">
+            <div className="max-w-3xl space-y-6">
+              <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Talking Drum Virtuoso</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+                Modern storytelling through ancestral rhythms.
+              </h1>
+              <p className="text-base md:text-lg text-white/80">
+                Experience cinematic percussion, electrifying showmanship, and bespoke compositions tailored for tours,
+                sync projects, and premium cultural events worldwide.
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                <Link
+                  href="/bookings"
+                  className="rounded-full bg-amber-400 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-gray-900 transition hover:bg-white"
+                >
+                  Book a Session
+                </Link>
+                <Link
+                  href="/media"
+                  className="rounded-full border border-white/70 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/10"
+                >
+                  Watch Live Set
+                </Link>
+              </div>
             </div>
-            <button className="bg-[rgba(123,36,36,0.84)] text-white rounded-full px-6 py-2 transition hover:bg-black">
-              Add to cart
-            </button>
+            <dl className="grid grid-cols-2 gap-6 rounded-3xl bg-white/10 p-6 text-left backdrop-blur">
+              <div>
+                <dt className="text-xs uppercase text-white/70 tracking-widest">Global Dates</dt>
+                <dd className="text-3xl font-semibold">120+</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase text-white/70 tracking-widest">Studio Credits</dt>
+                <dd className="text-3xl font-semibold">75</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase text-white/70 tracking-widest">Workshops</dt>
+                <dd className="text-3xl font-semibold">40</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase text-white/70 tracking-widest">Awards</dt>
+                <dd className="text-3xl font-semibold">9</dd>
+              </div>
+            </dl>
           </div>
-          {/* Repeat for other products as needed */}
-        </div>
-      </section>
+        </section>
 
-      {/* Media Section */}
-      <section className="mid-section flex flex-col md:flex-row items-center justify-center py-12 px-4 bg-[#fafafa]">
-        <iframe
-          className="img1 w-full max-w-lg h-64 md:h-80 rounded-lg shadow-lg"
-          src="https://player.vimeo.com/video/1122500526?autoplay=1&muted=1&loop=1&controls=1&background=0"
-          title="Performance Video"
-          frameBorder="0"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
-        <div className="mid-section-text md:ml-8 mt-8 md:mt-0 text-center md:text-left">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Experience the rhythm of tradition and innovation.
-          </h3>
-          <button className="bg-[rgba(123,36,36,0.84)] text-white rounded-full px-8 py-3 transition hover:bg-black">
-            Watch More
-          </button>
-        </div>
-      </section>
-
-      {/* Newsletter Card */}
-      <div className="card flex flex-col items-center justify-center bg-white p-8 max-w-md mx-auto rounded-lg shadow my-12">
-        <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-        <form onSubmit={handleSubscribe} className="w-full">
-          <div className="form-group mb-4">
-            <label htmlFor="email" className="block mb-2 font-medium">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              required
-              placeholder="Enter your email"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[rgba(123,36,36,0.84)]"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
+        <section id="services" className="bg-white px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Offerings</p>
+              <h2 className="mt-4 text-3xl font-semibold text-gray-900">From arena shows to bespoke recordings.</h2>
+              <p className="mt-4 text-base text-gray-600">
+                Each package is crafted around your creative brief. Expect collaborative pre-production, multi-format
+                deliverables, and seamless coordination with your tour manager or music director.
+              </p>
+              <Link
+                href="/bookings"
+                className="mt-6 inline-flex items-center gap-2 text-[rgba(123,36,36,0.92)] font-semibold"
+              >
+                Explore bookings
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="grid gap-6">
+              {performancePackages.map((pkg) => (
+                <article
+                  key={pkg.id}
+                  className="rounded-3xl border border-gray-200 bg-[#fafafa] p-6 shadow-sm hover:shadow-md transition"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900">{pkg.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{pkg.blurb}</p>
+                  <ul className="mt-4 flex flex-wrap gap-3 text-xs font-semibold text-gray-700">
+                    {pkg.highlights.map((highlight) => (
+                      <li key={highlight} className="rounded-full bg-white px-4 py-1 border border-gray-200">
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
-          <button type="submit" className="w-full bg-[rgba(123,36,36,0.84)] text-white py-2 rounded hover:bg-black transition">Subscribe</button>
-          {subscribed && (
-            <p className="message mt-4 text-green-600 font-semibold">✅ Thanks for subscribing!</p>
-          )}
-        </form>
-      </div>
+        </section>
 
-      {/* Footer */}
-      <footer id="contact-us" className="flex flex-wrap justify-between gap-20 text-black border-t-2 border-[rgba(123,36,36,0.91)] py-12 px-8 mt-auto bg-white">
-        <div>
-          <h3 className="font-light text-xl mb-2">Email Us</h3>
-          <p>threadandclay@comapany.com</p>
-        </div>
-        <div>
-          <h3 className="font-light text-xl mb-2">Follow us</h3>
-          <div className="contact-icons flex gap-3">
-            <Image src="/icons/instagram.svg" alt="Instagram" width={40} height={40} />
-            <Image src="/icons/facebook.svg" alt="Facebook" width={40} height={40} />
-            <Image src="/icons/tiktok.svg" alt="TikTok" width={40} height={40} />
-            <Image src="/icons/x.svg" alt="X" width={40} height={40} />
+        <section id="about" className="bg-[#f7f1ef] px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl grid gap-10 md:grid-cols-2 items-center">
+            <div className="relative">
+              <div className="aspect-square rounded-[40px] overflow-hidden shadow-xl border border-white">
+                <Image
+                  src="/images/pottery-back2.jpg"
+                  alt="Live talking drum performance"
+                  width={640}
+                  height={640}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 rounded-3xl bg-white px-6 py-4 shadow-lg">
+                <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Residency</p>
+                <p className="text-2xl font-semibold text-gray-900">National Theatre</p>
+                <p className="text-sm text-gray-600">London · Summer 2025</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">About</p>
+              <h2 className="mt-4 text-3xl font-semibold text-gray-900">Heritage drums, futuristic stages.</h2>
+              <p className="mt-4 text-base text-gray-600">
+                I grew up shadowing palace drummers in Osogbo before touring globally with Afrobeats and pop headliners.
+                Today I design immersive shows that pair traditional rhythms with synth bass, spoken word, and motion
+                visuals—giving brands and audiences a multi-sensory story they can feel in their chest.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <div className="rounded-3xl bg-white px-5 py-4 shadow border border-gray-100">
+                  <p className="text-sm text-gray-500 uppercase tracking-widest">Featured On</p>
+                  <p className="mt-1 text-lg font-semibold text-gray-900">BBC, Boiler Room, Global Citizen</p>
+                </div>
+                <div className="rounded-3xl bg-white px-5 py-4 shadow border border-gray-100">
+                  <p className="text-sm text-gray-500 uppercase tracking-widest">Clients</p>
+                  <p className="mt-1 text-lg font-semibold text-gray-900">Spotify, Nike, UNESCO</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="media" className="bg-white px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl space-y-8">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Media</p>
+                <h2 className="mt-3 text-3xl font-semibold">Latest sessions & features.</h2>
+              </div>
+              <Link href="/media" className="text-sm font-semibold text-[rgba(123,36,36,0.92)]">
+                View full archive →
+              </Link>
+            </div>
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div className="overflow-hidden rounded-[32px] border border-gray-200 shadow-lg">
+                <iframe
+                  className="aspect-video w-full"
+                  src="https://www.youtube.com/embed/BmQw5s8Oq4E"
+                  title="Live session"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="grid gap-6">
+                {["Boiler Room Lagos", "Global Citizen NYC", "Tiny Desk Lagos"].map((title) => (
+                  <article key={title} className="rounded-[28px] border border-gray-200 bg-[#fafafa] p-6">
+                    <p className="text-sm text-gray-500 uppercase tracking-[0.4em]">Featured Set</p>
+                    <h3 className="mt-2 text-xl font-semibold text-gray-900">{title}</h3>
+                    <p className="mt-2 text-sm text-gray-600">
+                      Exclusive stems, behind-the-scenes clips, and full-length performance video available on the media
+                      page.
+                    </p>
+                    <Link href="/media" className="mt-4 inline-flex items-center text-sm font-semibold text-[rgba(123,36,36,0.92)]">
+                      Watch highlight →
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="shop" className="bg-[#fdf9f6] px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Shop</p>
+                <h2 className="mt-3 text-3xl font-semibold">Limited merch & sample packs.</h2>
+              </div>
+              <Link href="/shop" className="text-sm font-semibold text-[rgba(123,36,36,0.92)]">
+                View all products →
+              </Link>
+            </div>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {featuredProducts.map((product) => (
+                <article key={product.id} className="flex flex-col rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="relative mb-4 overflow-hidden rounded-3xl">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={360}
+                      height={300}
+                      className="h-56 w-full object-cover"
+                    />
+                    <span className="absolute left-3 top-3 rounded-full bg-[rgba(123,36,36,0.92)] px-3 py-1 text-xs font-semibold text-white">
+                      {product.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{product.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Secure checkout via Paystack with fulfillment updates sent from Firestore automations.
+                  </p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-2xl font-semibold text-gray-900">{product.price}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleCheckout(product)}
+                      className="rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition hover:bg-[rgba(123,36,36,0.92)] disabled:opacity-50"
+                      disabled={processingProduct === product.id}
+                    >
+                      {processingProduct === product.id ? "Processing…" : "Buy via Paystack"}
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="bg-white px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-6xl space-y-10">
+            <div className="flex flex-col gap-4 text-center">
+              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Testimonials</p>
+              <h2 className="text-3xl font-semibold">Trusted by musical directors & cultural curators.</h2>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {testimonials.map((item) => (
+                <blockquote
+                  key={item.id}
+                  className="rounded-[32px] border border-gray-200 bg-[#fafafa] p-6 text-sm text-gray-700 shadow-sm"
+                >
+                  <p>{item.quote}</p>
+                  <footer className="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    {item.name} · {item.role}
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="newsletter" className="px-6 py-16 lg:px-16">
+          <div className="mx-auto max-w-4xl rounded-[40px] bg-[rgba(123,36,36,0.92)] px-8 py-12 text-white shadow-lg">
+            <div className="flex flex-col gap-4 text-center">
+              <p className="text-xs uppercase tracking-[0.4em] text-amber-200">Stay updated</p>
+              <h2 className="text-3xl font-semibold">Tour drops, sample packs, and booking windows.</h2>
+              <p className="text-sm text-white/80">
+                Join the private list powered by Firestore + Firebase Auth. You’ll receive availability alerts before
+                they go public.
+              </p>
+            </div>
+            <form onSubmit={handleSubscribe} className="mt-8 flex flex-col gap-4 md:flex-row md:items-center" noValidate>
+              <label htmlFor="newsletter-email" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="newsletter-email"
+                type="email"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="you@example.com"
+                className="flex-1 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-amber-200"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-white px-10 py-3 text-sm font-semibold uppercase tracking-wide text-gray-900 transition hover:bg-amber-200"
+              >
+                Join the list
+              </button>
+            </form>
+            <p className="mt-4 text-center text-sm text-amber-200" role="status" aria-live="polite">
+              {subscribed ? "✅ Thanks! Check your inbox for confirmation." : "No spam. Unsubscribe anytime."}
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-white border-t border-gray-200 px-6 py-12 lg:px-16">
+        <div className="mx-auto max-w-6xl grid gap-8 md:grid-cols-4 text-sm text-gray-600">
+          <div>
+            <h3 className="text-base font-semibold text-gray-900">Contact</h3>
+            <p className="mt-2">
+              bookings@ayogrooves.com
+              <br />
+              +234 802 555 0199
+            </p>
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-gray-900">Studios</h3>
+            <p className="mt-2">
+              Lagos · London · New York
+              <br />
+              Available worldwide
+            </p>
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-gray-900">Social</h3>
+            <div className="mt-3 flex gap-4">
+              <Image src="/icons/instagram.svg" alt="Instagram" width={28} height={28} />
+              <Image src="/icons/facebook.svg" alt="Facebook" width={28} height={28} />
+              <Image src="/icons/tiktok.svg" alt="TikTok" width={28} height={28} />
+              <Image src="/icons/x.svg" alt="X" width={28} height={28} />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-gray-900">Quick Links</h3>
+            <ul className="mt-2 space-y-2">
+              <li>
+                <Link href="/privacy" className="hover:text-gray-900">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-gray-900">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/shop" className="hover:text-gray-900">
+                  Store
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <div>
-          <h3 className="font-light text-xl mb-2">Our Shop</h3>
-          <p>
-            Terms and Policy<br />
-            Contact Us<br />
-            Offers and Promotion<br />
-            Gift Cards<br />
-            Store and Opening Hours<br />
-          </p>
-        </div>
-        <div>
-          <h3 className="font-light text-xl mb-2">Links</h3>
-          <p>
-            <a href="#header" className="text-black">Our Brand</a><br />
-            Career<br />
-            <a href="#about" className="text-black">About</a><br />
-            Campaigns<br />
-          </p>
-        </div>
-        <div className="w-[60%]">
-          <h3 className="font-light text-xl mb-2">Our Location</h3>
-          <p>
-            Rush Green Campus, Dagenham Rd, Rush Green, Dagenham, United Kingdom<br />
-            138 Waterville Rd, Avon, United States<br />
-          </p>
-        </div>
-        <p className="w-full text-center mt-8">&copy; 2025 Thread & Clay. All rights reserved.</p>
+        <p className="mt-10 text-center text-xs uppercase tracking-[0.4em] text-gray-500">
+          © {new Date().getFullYear()} Ayo Ogunlana · All rights reserved
+        </p>
       </footer>
     </div>
   );
 }
+
