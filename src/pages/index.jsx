@@ -15,10 +15,10 @@ const shopDropdown = [
 ];
 
 const heroStats = [
-  { label: "Pieces Crafted", value: "320+" },
-  { label: "Collectors", value: "180" },
+  { label: "Performances", value: "150+" },
+  { label: "Students Trained", value: "50+" },
   { label: "Workshops", value: "45" },
-  { label: "Residencies", value: "9" },
+  { label: "Cultural Residencies", value: "9" },
 ];
 
 const bestsellers = [
@@ -80,24 +80,24 @@ export default function Home() {
           <div className="relative z-10 mx-auto max-w-3xl space-y-6">
             <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Talking Drum Portfolio</p>
             <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">
-              Modern storytelling through heritage percussion & artisan craft.
+              Modern storytelling through Yoruba percussion & cultural heritage.
             </h1>
             <p className="text-base text-white/80 md:text-lg">
-              Thread & Clay pairs cinematic drumming, bespoke art objects, and immersive residencies for touring
-              artists, galleries, and cultural festivals worldwide.
+              Oderinde David Oluwakayode brings cinematic talking-drum performance, cultural education, 
+              and heritage-rooted sound design to stages, studios, and festivals across Nigeria and beyond.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="#bestsellers"
                 className="rounded-full bg-amber-400 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-gray-900 transition hover:bg-white"
               >
-                Browse Collection
+                View Performances
               </Link>
               <Link
                 href="/bookings"
                 className="rounded-full border border-white/70 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/10"
               >
-                Book a Performance
+                Book an Appearance
               </Link>
             </div>
           </div>
