@@ -23,8 +23,8 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-wrap gap-10">
         <div className="space-y-4">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/icons/logo.svg" alt="Thread & Clay logo" width={40} height={40} />
-            <span className="font-newsreader text-2xl text-gray-900">Thread & Clay.</span>
+            <Image src="/icons/footer_logo.png" alt="KayDrumz logo" width={120} height={100} />
+            <span className="font-newsreader text-2xl text-gray-900">Kay Drumz.</span>
           </Link>
           <p className="text-sm text-gray-600">Talking drum portfolio & artisan studio based in Lagos and London.</p>
           <div className="space-y-1 text-sm text-gray-700">
@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="mt-10 text-center text-xs text-gray-500">© {new Date().getFullYear()} Thread & Clay. All rights reserved.</p>
+      <p className="mt-10 text-center text-xs text-gray-500">© {new Date().getFullYear()} Kay Drumz. All rights reserved.</p>
     </footer>
   );
 }

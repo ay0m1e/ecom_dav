@@ -5,8 +5,8 @@ const videoFeatures = [
   {
     id: "residency",
     title: "Residency Film",
-    platform: "Vimeo",
-    src: "https://player.vimeo.com/video/1122500526?autoplay=0&muted=1",
+    platform: "YouTube",
+    src: "https://www.youtube.com/embed/8Msa3Vx-_To?si=V3QkLQhrWc5cfhf5",
     summary: "Documentary short that follows the National Theatre residency build and opening performance.",
   },
   {

@@ -16,10 +16,10 @@ export default function Navbar() {
 
   return (
     <header className="relative z-50 border-b border-white/30 bg-[rgba(123,36,36,0.92)] text-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-[1px] lg:px-12">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-[15px] lg:px-12">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/icons/logo.svg" alt="Thread & Clay logo" width={40} height={40} />
-          <span className="font-newsreader text-2xl tracking-wide">Thread & Clay.</span>
+          <Image src="/icons/logo-real.png" alt="KayDrumz logo" width={120} height={100} />
+          <span className="font-newsreader text-2xl tracking-wide">Kay Drumz.</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.3em] lg:flex">

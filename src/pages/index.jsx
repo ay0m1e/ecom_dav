@@ -75,7 +75,7 @@ export default function Home() {
         <section
           className="relative isolate flex min-h-[75vh] flex-col items-center justify-center gap-6 overflow-hidden px-6 py-20 text-center text-white md:px-12"
         >
-          <div className="absolute inset-0 bg-[url('/images/background-paintings.jpg')] bg-cover bg-center" aria-hidden="true" />
+          <div className="absolute inset-0 bg-[url('/images/david.jpg')] bg-cover bg-center" aria-hidden="true" />
           <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
           <div className="relative z-10 mx-auto max-w-3xl space-y-6">
             <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Talking Drum Portfolio</p>
@@ -189,7 +189,7 @@ export default function Home() {
         <section className="relative overflow-hidden border-t-2 border-[rgba(123,36,36,0.92)] bg-white">
           <iframe
             className="h-[420px] w-full object-cover opacity-60"
-            src="https://player.vimeo.com/video/1122500526?autoplay=1&muted=1&loop=1&controls=0"
+            src="https://www.youtube.com/embed/8Msa3Vx-_To?autoplay=1&mute=1&loop=1&controls=0&playlist=8Msa3Vx-_To"
             title="Studio film"
             allow="autoplay; fullscreen; picture-in-picture"
           />
