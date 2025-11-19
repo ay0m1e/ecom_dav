@@ -21,12 +21,12 @@ const videoFeatures = [
 
 // Photo tiles for the mid-page gallery.
 const photoStories = [
-  { id: "atelier", image: "/images/mid%20sec%202.jpg", caption: "Atelier build week · Lagos" },
-  { id: "gallery", image: "/images/woven-prod%20(4).jpg", caption: "Gallery install · Shoreditch" },
-  { id: "clinic", image: "/images/pottery-prod%20(2).jpg", caption: "Percussion clinic · Montreal" },
-  { id: "textile", image: "/images/woven-prod%20(6).jpg", caption: "Textile dye baths · Ogun State" },
-  { id: "stage", image: "/images/paint-prod7.jpg", caption: "Stage rigging · Berlin" },
-  { id: "portrait", image: "/images/paint-prod6.jpg", caption: "Press portrait · Lagos Island" },
+  { id: "atelier", image: "/images/david_photo3.jpg", caption: "Atelier build week · Lagos" },
+  { id: "gallery", image: "/images/david_photo4.jpg", caption: "Gallery install · Shoreditch" },
+  { id: "clinic", image: "/images/david_photo5.jpg", caption: "Percussion clinic · Montreal" },
+  { id: "textile", image: "/images/david_photo6.jpg", caption: "Textile dye baths · Ogun State" },
+  { id: "stage", image: "/images/david_photo7.jpg", caption: "Stage rigging · Berlin" },
+  { id: "portrait", image: "/images/david.jpg", caption: "Press portrait · Lagos Island" },
 ];
 
 // Downloadable audio assets displayed on cards.
@@ -54,7 +54,7 @@ export default function Media() {
     <div className="bg-[#fafafa] text-gray-900">
       {/* Hero */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
-        <div className="absolute inset-0 bg-[url('/images/weave-back.jpg')] bg-cover bg-center" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[url('/images/tkdrum_1.jpg')] bg-cover bg-[position:center_70%]" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Media Library</p>
@@ -74,10 +74,6 @@ export default function Media() {
               <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Featured Films</p>
               <h2 className="text-3xl font-semibold">Watch the latest commissions.</h2>
             </div>
-            <p className="max-w-xl text-sm text-gray-600">
-              High-resolution files, stems, and cue sheets available on request. Each film pairs binaural audio with on-stage
-              stems for seamless programming.
-            </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {videoFeatures.map((video) => (

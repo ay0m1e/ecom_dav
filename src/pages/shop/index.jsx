@@ -74,7 +74,7 @@ export default function ShopPage() {
     <div className="bg-[#fafafa] text-gray-900">
       {/* Hero describing the shop */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
-        <div className="absolute inset-0 bg-[url('/images/pottry-back.jpg')] bg-cover bg-center" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[url('/images/gangan.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Thread & Clay Shop</p>
