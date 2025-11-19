@@ -77,7 +77,7 @@ export default function ShopPage() {
         <div className="absolute inset-0 bg-[url('/images/gangan.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Thread & Clay Shop</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Kay Drumz Shop</p>
           <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Limited runs handcrafted in Lagos & London.</h1>
           <p className="text-base text-white/80 md:text-lg">
             Browse drums, textiles, and gallery objects released this season. Each shipment includes provenance cards,

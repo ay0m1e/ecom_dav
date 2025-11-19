@@ -4,7 +4,7 @@ export default function BookingsPage() {
     <div className="bg-[#fafafa] text-gray-900">
       {/* Hero describing the booking process */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
-        <div className="absolute inset-0 bg-[url('/images/background-paintings.jpg')] bg-cover bg-center" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[url('/images/booking.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-3xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Bookings</p>

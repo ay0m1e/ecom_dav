@@ -21,8 +21,8 @@ export default function About() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
       {/* Hero / Intro */}
-      <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
-        <div className="absolute inset-0 bg-[url('/images/background-paintings.jpg')] bg-cover bg-center" aria-hidden="true" />
+      <section className="relative isolate min-h-[90vh] overflow-hidden px-6 py-28 text-white lg:px-12">
+        <div className="absolute inset-0 bg-[url('/images/david_photo2.jpg')] bg-cover bg-[position:center_40%]" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">About David</p>
@@ -64,7 +64,7 @@ export default function About() {
           </div>
           <div className="space-y-6">
             <div className="relative h-80 overflow-hidden rounded-[40px] border border-white shadow-xl">
-              <Image src="/images/pottry-back.jpg" alt="Ayo Ogunlana portrait" fill className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
+              <Image src="/images/david.jpg" alt="David portrait" fill className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
             </div>
             <div className="rounded-[30px] border border-gray-200 bg-white p-6 shadow-sm">
               <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Clients & collaborators</p>

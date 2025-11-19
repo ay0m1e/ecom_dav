@@ -29,6 +29,13 @@ const photoStories = [
   { id: "portrait", image: "/images/david.jpg", caption: "Press portrait · Lagos Island" },
 ];
 
+// Custom object-position tweaks for specific images to reveal more of the frame.
+const storyImageFocus = {
+  gallery: "center 25%",
+  clinic: "center 30%",
+  stage: "center 20%",
+};
+
 // Downloadable audio assets displayed on cards.
 const audioDrops = [
   {
@@ -113,8 +120,15 @@ export default function Media() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {photoStories.map((story) => (
               <figure key={story.id} className="rounded-[30px] border border-gray-200 bg-[#fafafa] shadow-sm">
-                <div className="relative h-60 overflow-hidden rounded-t-[30px]">
-                  <Image src={story.image} alt={story.caption} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+                <div className="relative h-72 overflow-hidden rounded-t-[30px]">
+                  <Image
+                    src={story.image}
+                    alt={story.caption}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover"
+                    style={storyImageFocus[story.id] ? { objectPosition: storyImageFocus[story.id] } : undefined}
+                  />
                 </div>
                 <figcaption className="px-4 py-4 text-sm text-gray-700">{story.caption}</figcaption>
               </figure>
