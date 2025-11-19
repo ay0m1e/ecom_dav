@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Navigation items for any in-page anchors the hero might reference.
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Bestsellers", href: "#bestsellers" },
@@ -8,12 +9,14 @@ const navLinks = [
   { label: "Contact", href: "#footer" },
 ];
 
+// Placeholder shop filters for potential dropdown expansions.
 const shopDropdown = [
   { label: "Paintings", href: "/shop/paintings" },
   { label: "Pottery", href: "/shop/pottery" },
   { label: "Weaving", href: "/shop/weaving" },
 ];
 
+// Key metrics surfaced in the hero stats block.
 const heroStats = [
   { label: "Performances", value: "150+" },
   { label: "Students Trained", value: "50+" },
@@ -21,6 +24,7 @@ const heroStats = [
   { label: "Cultural Residencies", value: "9" },
 ];
 
+// Product cards for the homepage bestseller carousel.
 const bestsellers = [
   {
     id: "vase",
@@ -48,6 +52,7 @@ const bestsellers = [
   },
 ];
 
+// Footer helper data (currently unused but retained for future sections).
 const footerColumns = [
   {
     title: "Studio",
@@ -67,11 +72,13 @@ const footerColumns = [
   },
 ];
 
+// Marketing-centric homepage that highlights hero storytelling and highlighted products.
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#fafafa] text-gray-900">
 
       <main>
+        {/* Hero block with background image and calls to action */}
         <section
           className="relative isolate flex min-h-[75vh] flex-col items-center justify-center gap-6 overflow-hidden px-6 py-20 text-center text-white md:px-12"
         >
@@ -111,6 +118,7 @@ export default function Home() {
           </dl>
         </section>
 
+        {/* Studio story slice that pairs text with imagery */}
         <section id="story" className="px-6 py-16 lg:px-12">
           <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-center">
             <div className="space-y-5">
@@ -153,6 +161,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Grid of best-selling products */}
         <section id="bestsellers" className="bg-white px-6 py-16 lg:px-12">
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -186,6 +195,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Embedded studio reel with overlay CTA */}
         <section className="relative overflow-hidden border-t-2 border-[rgba(123,36,36,0.92)] bg-white">
           <iframe
             className="h-[420px] w-full object-cover opacity-60"

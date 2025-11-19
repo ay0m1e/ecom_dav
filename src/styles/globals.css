@@ -1,27 +1,32 @@
+/* Import the display serif used in hero typography. */
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600&display=swap");
 
+/* Tailwind layers hook so @apply and utilities work globally. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* Set default typography + colors for the entire document. */
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #111827;
   background-color: #fafafa;
 }
 
+/* Opt into border-box sizing across the board for layout sanity. */
 * {
   box-sizing: border-box;
 }
 
+/* Body baseline matches the light neutral palette. */
 body {
   margin: 0;
   min-height: 100vh;
   background-color: #fafafa;
 }
 
+/* Links inherit surrounding text color and drop default underline. */
 a {
   color: inherit;
   text-decoration: none;
 }
-

@@ -1,3 +1,4 @@
+// Quick lists that populate the contact cards on the page.
 const contactLinks = [
   {
     title: "Studio",
@@ -13,15 +14,18 @@ const contactLinks = [
   },
 ];
 
+// Social handles that appear under the "Join the journey" CTA.
 const socials = [
   { name: "Instagram", handle: "@threadandclay", href: "#" },
   { name: "TikTok", handle: "@talkingdrummer", href: "#" },
   { name: "YouTube", handle: "Thread & Clay Studio", href: "#" },
 ];
 
+// Contact page combines hero, inquiry form, and supplemental studio info.
 export default function ContactPage() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      {/* Hero describing communication goals */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
         <div className="absolute inset-0 bg-[url('/images/background-paintings.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
@@ -32,6 +36,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Inquiry form */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-4xl rounded-[36px] border border-gray-200 bg-white p-8 shadow-lg">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Send a note</p>
@@ -61,6 +66,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Supplemental studio + social details */}
       <section className="bg-white px-6 pb-16 lg:px-12">
         <div className="mx-auto max-w-6xl grid gap-8 md:grid-cols-2">
           <div className="space-y-6">

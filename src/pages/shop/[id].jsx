@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Placeholder product data (could be dynamic in the future).
 const product = {
   name: "Signature Talking Drum",
   price: "£420",
@@ -11,6 +12,7 @@ const product = {
   dimensions: ['Height: 22"', 'Diameter: 9"', "Weight: 4.3kg"],
 };
 
+// Cross-sell suggestions displayed under the main detail section.
 const suggested = [
   {
     id: "mini",
@@ -32,9 +34,11 @@ const suggested = [
   },
 ];
 
+// Product detail layout split into gallery + info column.
 export default function ProductDetailPage() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      {/* Primary product area */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
@@ -88,6 +92,7 @@ export default function ProductDetailPage() {
         </div>
       </section>
 
+      {/* Suggested items */}
       <section className="bg-white px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">

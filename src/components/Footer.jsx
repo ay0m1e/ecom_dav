@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Repeat the top-level navigation so visitors can move around from the footer.
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -10,6 +11,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Static set of social icons rendered as badges.
 const socialIcons = [
   { label: "Instagram", icon: "/icons/instagram.svg" },
   { label: "Facebook", icon: "/icons/facebook.svg" },
@@ -17,11 +19,13 @@ const socialIcons = [
   { label: "X", icon: "/icons/x.svg" },
 ];
 
+// Footer shares brand info, nav links, contact points, and badges for social media.
 export default function Footer() {
   return (
     <footer className="border-t-2 border-[rgba(123,36,36,0.92)] bg-white px-6 py-16 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-wrap gap-10">
         <div className="space-y-4">
+          {/* Brand lockup with contact summary */}
           <Link href="/" className="flex items-center gap-3">
             <Image src="/icons/footer_logo.png" alt="KayDrumz logo" width={120} height={100} />
             <span className="font-newsreader text-2xl text-gray-900">Kay Drumz.</span>
@@ -39,6 +43,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-gray-700">
               {navLinks.map((link) => (
                 <li key={link.href}>
+                  {/* Footer navigation menu */}
                   <Link href={link.href} className="transition hover:text-[rgba(123,36,36,0.92)]">
                     {link.label}
                   </Link>
@@ -50,6 +55,7 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-[0.4em] text-gray-500">Social</h3>
             <div className="flex flex-wrap gap-3">
               {socialIcons.map((social) => (
+                // Each social icon is just a decorative badge for now.
                 <span key={social.label} className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] shadow-sm">
                   <Image src={social.icon} alt={`${social.label} icon`} width={20} height={20} />
                 </span>
@@ -58,6 +64,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Lightweight legal/footer text */}
       <p className="mt-10 text-center text-xs text-gray-500">© {new Date().getFullYear()} Kay Drumz. All rights reserved.</p>
     </footer>
   );

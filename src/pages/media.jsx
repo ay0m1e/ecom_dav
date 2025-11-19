@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+// Featured video embeds used in the hero grid.
 const videoFeatures = [
   {
     id: "residency",
@@ -18,6 +19,7 @@ const videoFeatures = [
   },
 ];
 
+// Photo tiles for the mid-page gallery.
 const photoStories = [
   { id: "atelier", image: "/images/mid%20sec%202.jpg", caption: "Atelier build week · Lagos" },
   { id: "gallery", image: "/images/woven-prod%20(4).jpg", caption: "Gallery install · Shoreditch" },
@@ -27,6 +29,7 @@ const photoStories = [
   { id: "portrait", image: "/images/paint-prod6.jpg", caption: "Press portrait · Lagos Island" },
 ];
 
+// Downloadable audio assets displayed on cards.
 const audioDrops = [
   {
     title: "Talking Drum Stem Pack",
@@ -45,6 +48,7 @@ const audioDrops = [
   },
 ];
 
+// Media page centralizes video, photography, audio drops, and CTAs.
 export default function Media() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
@@ -62,7 +66,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* Feature Films */}
+      {/* Feature Films with embedded players */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -98,7 +102,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* Photo Stories */}
+      {/* Photo Stories grid */}
       <section className="bg-white px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -123,7 +127,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* Audio Drops */}
+      {/* Audio Drops catalog */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -151,7 +155,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA for contacting / booking */}
       <section className="border-t-2 border-[rgba(123,36,36,0.92)] bg-[#fdf9f6] px-6 py-16 text-center lg:px-12">
         <div className="mx-auto max-w-3xl space-y-5">
           <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Downloads</p>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Quick badges that summarize David's credentials.
 const bioHighlights = [
   "Talking Drum Performer with 15+ major stage appearances",
   "Cultural educator for young learners & global audiences",
@@ -8,12 +9,14 @@ const bioHighlights = [
   "Workshop host for schools, churches, and cultural spaces",
 ];
 
+// Image set powering the gallery near the bottom of the page.
 const galleryImages = [
   { src: "/images/pottery-back2.jpg", alt: "Studio session" },
   { src: "/images/woven-prod9.jpg", alt: "Textile detail" },
   { src: "/images/paint-prod5.jpg", alt: "Performance close-up" },
 ];
 
+// About page walks through the artist bio, gallery proof points, and CTA.
 export default function About() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
@@ -30,7 +33,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Drummer Bio */}
+      {/* Drummer Bio detailing David's background */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div className="space-y-5">
@@ -71,7 +74,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Photo Showcase */}
+      {/* Photo Showcase showing studio work and touring moments */}
       <section className="bg-white px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -94,7 +97,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action nudging partners to collaborate */}
       <section className="border-t-2 border-[rgba(123,36,36,0.92)] bg-[#fdf9f6] px-6 py-16 text-center lg:px-12">
         <div className="mx-auto max-w-3xl space-y-5">
           <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Collaborate</p>

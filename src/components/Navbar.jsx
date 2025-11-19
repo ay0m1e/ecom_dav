@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+// Shared map of primary navigation routes used in both desktop + mobile menus.
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -11,17 +12,21 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Sticky site navigation that swaps to a drawer on smaller screens.
 export default function Navbar() {
+  // Track whether the mobile drawer is expanded.
   const [open, setOpen] = useState(false);
 
   return (
     <header className="relative z-50 border-b border-white/30 bg-[rgba(123,36,36,0.92)] text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-[15px] lg:px-12">
+        {/* Brand mark that sends visitors back to the homepage */}
         <Link href="/" className="flex items-center gap-3">
           <Image src="/icons/logo-real.png" alt="KayDrumz logo" width={120} height={100} />
           <span className="font-newsreader text-2xl tracking-wide">Kay Drumz.</span>
         </Link>
 
+        {/* Desktop navigation list with CTA */}
         <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.3em] lg:flex">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="transition hover:text-amber-200">
@@ -33,6 +38,7 @@ export default function Navbar() {
           </button>
         </nav>
 
+        {/* Hamburger control for the mobile drawer */}
         <button
           type="button"
           className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 lg:hidden"
@@ -48,6 +54,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile navigation drawer that animates open/closed */}
       <div className={`lg:hidden ${open ? "max-h-screen" : "max-h-0"} overflow-hidden border-t border-white/20 bg-[rgba(123,36,36,0.95)] transition-[max-height] duration-300`}>
         <div className="space-y-4 px-6 py-6">
           {navLinks.map((link) => (

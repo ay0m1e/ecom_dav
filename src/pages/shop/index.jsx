@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Static catalog data powering each product card in the grid.
 const catalog = [
   {
     id: "drum-classic",
@@ -67,9 +68,11 @@ const catalog = [
   },
 ];
 
+// Shop landing page with hero and catalog grid.
 export default function ShopPage() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      {/* Hero describing the shop */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
         <div className="absolute inset-0 bg-[url('/images/pottry-back.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
@@ -83,6 +86,7 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* Product grid */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="flex flex-wrap items-center justify-between gap-4">

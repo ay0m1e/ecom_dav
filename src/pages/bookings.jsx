@@ -1,6 +1,8 @@
+// Bookings form page collects inbound inquiries for residencies or shows.
 export default function BookingsPage() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      {/* Hero describing the booking process */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
         <div className="absolute inset-0 bg-[url('/images/background-paintings.jpg')] bg-cover bg-center" aria-hidden="true" />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
@@ -13,6 +15,7 @@ export default function BookingsPage() {
         </div>
       </section>
 
+      {/* Form container */}
       <section className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-4xl rounded-[36px] border border-gray-200 bg-white p-8 shadow-lg">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Booking Request</p>
