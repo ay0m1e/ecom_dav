@@ -120,7 +120,7 @@ export default function Home() {
 
         {/* Studio story slice that pairs text with imagery */}
         <section id="story" className="px-6 py-16 lg:px-12">
-          <div className="ml-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
             <div className="space-y-5 md:flex-1">
               <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Studio Story</p>
               <h2 className="text-3xl font-semibold text-gray-900">
