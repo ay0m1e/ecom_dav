@@ -120,33 +120,36 @@ export default function Home() {
 
         {/* Studio story slice that pairs text with imagery */}
         <section id="story" className="px-6 py-16 lg:px-12">
-          <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-center">
-            <div className="space-y-5">
+          <div className="ml-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-5 md:flex-1">
               <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Studio Story</p>
               <h2 className="text-3xl font-semibold text-gray-900">
-                Heritage drums meet gallery-ready craftsmanship.
+                Heritage rhythm meets contemporary performance craft.
               </h2>
               <p className="text-base text-gray-600">
-                Inspired by palatial Yoruba drummers and contemporary design labs, the studio curates instruments,
-                textiles, and custom shows with a focus on warmth, tactility, and layered storytelling. Each release is
-                produced in micro batches and finished by hand in Lagos and London.
+                Guided by Yoruba master-drummers and shaped by years on gospel and cultural stages, 
+                David curates rhythmic experiences that balance tradition with cinematic flair. 
+                His studio work spans teaching sessions, live performances, sound explorations, 
+                and cultural storytelling developed for churches, schools, festivals, and creative collectives across Nigeria. 
+                Each project is crafted with precision, cultural respect, 
+                and a commitment to preserving the talking drum’s voice for modern audiences.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
                   <p className="text-xs uppercase tracking-widest text-gray-500">Materials</p>
-                  <p className="text-sm font-semibold text-gray-900">Shea leather · Indigo dye · Bronze</p>
+                  <p className="text-sm font-semibold text-gray-900">Yoruba drum language · Tonal storytelling · Call-and-response rhythm</p>
                 </div>
                 <div className="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
                   <p className="text-xs uppercase tracking-widest text-gray-500">Clients</p>
-                  <p className="text-sm font-semibold text-gray-900">Boiler Room · Global Citizen · V&A</p>
+                  <p className="text-sm font-semibold text-gray-900">RCCG Marathon Praise · TCCAN Newsong · Cultural Schools · Community Arts Projects</p>
                 </div>
               </div>
             </div>
-            <div className="relative w-full md:w-1/2">
+            <div className="relative w-full md:w-[30%]">
               <div className="aspect-[4/5] w-full overflow-hidden rounded-[32px] border border-white shadow-xl">
                 <Image
-                  src="/images/pottery-back2.jpg"
-                  alt="Artisan shaping a talking drum"
+                  src="/images/david_photo1.jpg"
+                  alt="Artist"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
@@ -154,8 +157,8 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-6 right-6 rounded-2xl bg-white px-5 py-4 shadow-lg">
                 <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Residency</p>
-                <p className="text-lg font-semibold text-gray-900">National Theatre, London</p>
-                <p className="text-sm text-gray-600">Summer 2025</p>
+                <p className="text-lg font-semibold text-gray-900">Lagos state, Nigeria</p>
+                <p className="text-sm text-gray-600">2025</p>
               </div>
             </div>
           </div>
