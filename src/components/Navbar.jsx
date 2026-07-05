@@ -33,9 +33,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <button type="button" className="rounded-full border border-white/50 px-4 py-2 text-[10px] uppercase tracking-[0.3em] hover:bg-white/10">
-            Artist Portal
-          </button>
+          {/* Artist Portal removed: no auth/portal exists yet. Re-add once that's built. */}
         </nav>
 
         {/* Hamburger control for the mobile drawer */}
@@ -67,12 +65,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <button
-            type="button"
-            className="w-full rounded-full border border-white/60 px-5 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white"
-          >
-            Artist Portal
-          </button>
+          {/* Artist Portal removed: no auth/portal exists yet. Re-add once that's built. */}
         </div>
       </div>
     </header>

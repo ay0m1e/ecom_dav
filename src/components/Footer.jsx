@@ -32,7 +32,7 @@ export default function Footer() {
           </Link>
           <p className="text-sm text-gray-600">Talking drum portfolio & artisan studio based in Lagos and London.</p>
           <div className="space-y-1 text-sm text-gray-700">
-            <p>Email: hello@threadandclay.com</p>
+            <p>Email: hello@kaydrumz.com</p>
             <p>Phone: +44 20 7123 0000</p>
           </div>
         </div>

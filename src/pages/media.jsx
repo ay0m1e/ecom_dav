@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -59,6 +60,9 @@ const audioDrops = [
 export default function Media() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      <Head>
+        <title>Kay Drumz — Media</title>
+      </Head>
       {/* Hero */}
       <section className="relative isolate overflow-hidden px-6 py-20 text-white lg:px-12">
         <div className="absolute inset-0 bg-[url('/images/tkdrum_1.jpg')] bg-cover bg-[position:center_70%]" aria-hidden="true" />

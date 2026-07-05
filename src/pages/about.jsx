@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,6 +21,9 @@ const galleryImages = [
 export default function About() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
+      <Head>
+        <title>Kay Drumz — About</title>
+      </Head>
       {/* Hero / Intro */}
       <section className="relative isolate min-h-[90vh] overflow-hidden px-6 py-28 text-white lg:px-12">
         <div className="absolute inset-0 bg-[url('/images/david_photo2.jpg')] bg-cover bg-[position:center_40%]" aria-hidden="true" />

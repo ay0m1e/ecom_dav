@@ -1,5 +1,7 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { products } from "@/data/products";
 
 // Navigation items for any in-page anchors the hero might reference.
 const navLinks = [
@@ -24,58 +26,17 @@ const heroStats = [
   { label: "Cultural Residencies", value: "9" },
 ];
 
-// Product cards for the homepage bestseller carousel.
-const bestsellers = [
-  {
-    id: "vase",
-    name: "Jug Water Carrier",
-    price: "£189",
-    image: "/images/paint-prod1.jpg",
-  },
-  {
-    id: "monalisa",
-    name: "The Monalisa",
-    price: "£1,000,000",
-    image: "/images/paint-prod3.jpg",
-  },
-  {
-    id: "purse",
-    name: "Hand Crafted Purse",
-    price: "£59",
-    image: "/images/paint-prod4.jpg",
-  },
-  {
-    id: "chair",
-    name: "Handmade Luxury Chair",
-    price: "£359",
-    image: "/images/paint-prod5.jpg",
-  },
-];
-
-// Footer helper data (currently unused but retained for future sections).
-const footerColumns = [
-  {
-    title: "Studio",
-    items: ["Thread & Clay", "Lagos · London", "Est. 2012"],
-  },
-  {
-    title: "Shop",
-    items: ["Paintings", "Pottery", "Weaving", "Gift Cards"],
-  },
-  {
-    title: "Visit",
-    items: ["Rush Green Campus", "Dagenham Rd, United Kingdom", "138 Waterville Rd, Avon"],
-  },
-  {
-    title: "Support",
-    items: ["Shipping & Returns", "Terms & Policy", "Press"]
-  },
-];
+// Featured slugs pulled from the shared product catalog for the homepage bestseller grid.
+const bestsellerIds = ["jug-water-carrier", "limited-print-series", "hand-crafted-purse", "carved-lounge-chair"];
+const bestsellers = products.filter((product) => bestsellerIds.includes(product.id));
 
 // Marketing-centric homepage that highlights hero storytelling and highlighted products.
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#fafafa] text-gray-900">
+      <Head>
+        <title>Kay Drumz — Talking Drum Portfolio</title>
+      </Head>
 
       <main>
         {/* Hero block with background image and calls to action */}
@@ -180,18 +141,20 @@ export default function Home() {
               {bestsellers.map((product) => (
                 <article key={product.id} className="flex flex-col rounded-[30px] border border-gray-200 bg-[#f8f8f8] p-6 shadow-sm">
                   <div className="relative mb-6 h-48 overflow-hidden rounded-2xl">
-                    <Image src={product.image} alt={product.name} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
+                    <Image src={product.images[0]} alt={product.name} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <h3 className="font-semibold text-gray-900">{product.name}</h3>
-                    <span className="font-semibold text-[rgba(123,36,36,0.92)]">{product.price}</span>
+                    <span className="font-semibold text-[rgba(123,36,36,0.92)]">
+                      {product.currency} {product.price.toLocaleString()}
+                    </span>
                   </div>
-                  <button
-                    type="button"
-                    className="mt-6 rounded-full bg-[rgba(123,36,36,0.92)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-black"
+                  <Link
+                    href={`/shop/${product.id}`}
+                    className="mt-6 rounded-full bg-[rgba(123,36,36,0.92)] px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-black"
                   >
-                    Add to cart
-                  </button>
+                    View piece
+                  </Link>
                 </article>
               ))}
             </div>
