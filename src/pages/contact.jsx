@@ -23,8 +23,7 @@ const contactLinks = [
 
 // Social handles that appear under the "Join the journey" CTA.
 const socials = [
-  // TODO: replace with the real Instagram URL once confirmed.
-  { name: "Instagram", handle: "@kaydrumz", href: "#" },
+  { name: "Instagram", handle: "@kaydrumz", href: "https://www.instagram.com/kaydrumz" },
   // TODO: replace with the real TikTok URL once confirmed.
   { name: "TikTok", handle: "@talkingdrummer", href: "#" },
   // TODO: replace with the real YouTube URL once confirmed.
@@ -178,7 +177,12 @@ export default function ContactPage() {
                 {socials.map((social) => (
                   <li key={social.name} className="flex items-center justify-between">
                     <span>{social.name}</span>
-                    <a href={social.href} className="font-semibold text-[rgba(123,36,36,0.92)]">
+                    <a
+                      href={social.href}
+                      target={social.href !== "#" ? "_blank" : undefined}
+                      rel={social.href !== "#" ? "noopener noreferrer" : undefined}
+                      className="font-semibold text-[rgba(123,36,36,0.92)]"
+                    >
                       {social.handle}
                     </a>
                   </li>

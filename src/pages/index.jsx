@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "@/data/products";
+import { products, formatPrice } from "@/data/products";
 
 // Navigation items for any in-page anchors the hero might reference.
 const navLinks = [
@@ -9,13 +9,6 @@ const navLinks = [
   { label: "Bestsellers", href: "#bestsellers" },
   { label: "Story", href: "#story" },
   { label: "Contact", href: "#footer" },
-];
-
-// Placeholder shop filters for potential dropdown expansions.
-const shopDropdown = [
-  { label: "Paintings", href: "/shop/paintings" },
-  { label: "Pottery", href: "/shop/pottery" },
-  { label: "Weaving", href: "/shop/weaving" },
 ];
 
 // Key metrics surfaced in the hero stats block.
@@ -26,9 +19,12 @@ const heroStats = [
   { label: "Cultural Residencies", value: "9" },
 ];
 
-// Featured slugs pulled from the shared product catalog for the homepage bestseller grid.
-const bestsellerIds = ["jug-water-carrier", "limited-print-series", "hand-crafted-purse", "carved-lounge-chair"];
-const bestsellers = products.filter((product) => bestsellerIds.includes(product.id));
+// Featured slugs pulled from the shared product catalog for the homepage bestseller grid,
+// led by the full instrument build.
+const bestsellerIds = ["gangan-talking-drum", "talking-drum-sticks", "finished-drum-shell-rimmed", "leather-rim-rings"];
+const bestsellers = bestsellerIds
+  .map((id) => products.find((product) => product.id === id))
+  .filter(Boolean);
 
 // Marketing-centric homepage that highlights hero storytelling and highlighted products.
 export default function Home() {
@@ -131,7 +127,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Bestsellers</p>
-                <h2 className="mt-3 text-3xl font-semibold">Limited art objects & signature drums.</h2>
+                <h2 className="mt-3 text-3xl font-semibold">Handmade talking drums & build components.</h2>
               </div>
               <Link href="/shop" className="text-sm font-semibold text-[rgba(123,36,36,0.92)]">
                 View all →
@@ -145,9 +141,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <h3 className="font-semibold text-gray-900">{product.name}</h3>
-                    <span className="font-semibold text-[rgba(123,36,36,0.92)]">
-                      {product.currency} {product.price.toLocaleString()}
-                    </span>
+                    <span className="font-semibold text-[rgba(123,36,36,0.92)]">{formatPrice(product)}</span>
                   </div>
                   <Link
                     href={`/shop/${product.id}`}

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "@/data/products";
+import { products, formatPrice } from "@/data/products";
 
 // Shop landing page with hero and catalog grid.
 export default function ShopPage() {
@@ -18,8 +18,8 @@ export default function ShopPage() {
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Kay Drumz Shop</p>
           <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Limited runs handcrafted in Lagos & London.</h1>
           <p className="text-base text-white/80 md:text-lg">
-            Browse drums, textiles, and gallery objects released this season. Each shipment includes provenance cards,
-            tuning guides, and archival photo sets.
+            Handmade Yoruba talking drums, sticks, and build components — carved, roped, and finished in Lagos.
+            Each piece ships with care and can be built to order.
           </p>
         </div>
       </section>
@@ -42,9 +42,6 @@ export default function ShopPage() {
               <article key={product.id} className="flex flex-col rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="relative mb-5 h-64 overflow-hidden rounded-[28px]">
                   <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="(min-width: 1024px) 30vw, 100vw" />
-                  <span className="absolute left-4 top-4 rounded-full bg-[rgba(123,36,36,0.92)] px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.4em] text-white">
-                    {product.badge}
-                  </span>
                 </div>
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Kay Drumz</p>
@@ -52,9 +49,7 @@ export default function ShopPage() {
                   <p className="text-sm text-gray-600">{product.description}</p>
                 </div>
                 <div className="mt-6 flex items-center justify-between">
-                  <span className="text-lg font-semibold text-gray-900">
-                    {product.currency} {product.price.toLocaleString()}
-                  </span>
+                  <span className="text-lg font-semibold text-gray-900">{formatPrice(product)}</span>
                   <Link
                     href={`/shop/${product.id}`}
                     className="rounded-full bg-[rgba(123,36,36,0.92)] px-6 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-black"

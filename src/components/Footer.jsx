@@ -11,11 +11,14 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-// Static set of social icons rendered as badges.
+// Static set of social icons rendered as badges. Only Instagram has a confirmed URL so far.
 const socialIcons = [
-  { label: "Instagram", icon: "/icons/instagram.svg" },
+  { label: "Instagram", icon: "/icons/instagram.svg", href: "https://www.instagram.com/kaydrumz" },
+  // TODO: add the real Facebook URL once confirmed.
   { label: "Facebook", icon: "/icons/facebook.svg" },
+  // TODO: add the real TikTok URL once confirmed.
   { label: "TikTok", icon: "/icons/tiktok.svg" },
+  // TODO: add the real X URL once confirmed.
   { label: "X", icon: "/icons/x.svg" },
 ];
 
@@ -54,12 +57,22 @@ export default function Footer() {
           <div className="min-w-[180px] space-y-3">
             <h3 className="text-sm font-semibold uppercase tracking-[0.4em] text-gray-500">Social</h3>
             <div className="flex flex-wrap gap-3">
-              {socialIcons.map((social) => (
-                // Each social icon is just a decorative badge for now.
-                <span key={social.label} className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] shadow-sm">
-                  <Image src={social.icon} alt={`${social.label} icon`} width={20} height={20} />
-                </span>
-              ))}
+              {socialIcons.map((social) => {
+                const badge = (
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-[#fafafa] shadow-sm">
+                    <Image src={social.icon} alt={`${social.label} icon`} width={20} height={20} />
+                  </span>
+                );
+                // Icons without a confirmed URL stay decorative until one is added.
+                if (!social.href) {
+                  return <span key={social.label}>{badge}</span>;
+                }
+                return (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                    {badge}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

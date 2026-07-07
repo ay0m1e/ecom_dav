@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "@/data/products";
+import { products, formatPrice } from "@/data/products";
 
 // WhatsApp number placeholder — replace with the studio's real number before launch.
 const WHATSAPP_NUMBER = "PHONE_PLACEHOLDER";
@@ -59,9 +59,7 @@ export default function ProductDetailPage({ product }) {
               <p className="text-sm text-gray-600">{product.description}</p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-3xl font-semibold text-gray-900">
-                {product.currency} {product.price.toLocaleString()}
-              </span>
+              <span className="text-3xl font-semibold text-gray-900">{formatPrice(product)}</span>
               <span className="text-xs uppercase tracking-[0.4em] text-gray-500">Ships worldwide</span>
             </div>
 
@@ -124,9 +122,7 @@ export default function ProductDetailPage({ product }) {
                   <Image src={item.images[0]} alt={item.name} fill className="object-cover" sizes="(min-width: 1024px) 30vw, 100vw" />
                 </div>
                 <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p className="text-sm text-gray-600">
-                  {item.currency} {item.price.toLocaleString()}
-                </p>
+                <p className="text-sm text-gray-600">{formatPrice(item)}</p>
                 <Link href={`/shop/${item.id}`} className="mt-4 inline-flex text-sm font-semibold text-[rgba(123,36,36,0.92)]">
                   View details →
                 </Link>
