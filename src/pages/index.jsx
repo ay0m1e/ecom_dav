@@ -16,7 +16,6 @@ const heroStats = [
   { label: "Performances", value: "150+" },
   { label: "Students Trained", value: "50+" },
   { label: "Workshops", value: "45" },
-  { label: "Cultural Residencies", value: "9" },
 ];
 
 // Featured slugs pulled from the shared product catalog for the homepage bestseller grid,
@@ -47,8 +46,8 @@ export default function Home() {
               Modern storytelling through Yoruba percussion & cultural heritage.
             </h1>
             <p className="text-base text-white/80 md:text-lg">
-              Oderinde David Oluwakayode brings cinematic talking-drum performance, cultural education, 
-              and heritage-rooted sound design to stages, studios, and festivals across Nigeria and beyond.
+              Oderinde David Oluwakayode brings cinematic talking-drum performance, cultural education,
+              and heritage-rooted sound design to stages and festivals across Nigeria and beyond.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
@@ -65,7 +64,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <dl className="relative z-10 grid w-full max-w-3xl grid-cols-2 gap-6 rounded-3xl bg-white/10 p-6 text-left text-white backdrop-blur md:grid-cols-4">
+          <dl className="relative z-10 grid w-full max-w-3xl grid-cols-2 gap-6 rounded-3xl bg-white/10 p-6 text-left text-white backdrop-blur md:grid-cols-3">
             {heroStats.map((stat) => (
               <div key={stat.label}>
                 <dt className="text-xs uppercase tracking-widest text-white/70">{stat.label}</dt>
@@ -75,25 +74,25 @@ export default function Home() {
           </dl>
         </section>
 
-        {/* Studio story slice that pairs text with imagery */}
+        {/* Artist story slice that pairs text with imagery */}
         <section id="story" className="px-6 py-16 lg:px-12">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
             <div className="space-y-5 md:flex-1">
-              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Studio Story</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Artist Story</p>
               <h2 className="text-3xl font-semibold text-gray-900">
-                Heritage rhythm meets contemporary performance craft.
+                Heritage rhythm meets contemporary performance artistry.
               </h2>
               <p className="text-base text-gray-600">
-                Guided by Yoruba master-drummers and shaped by years on gospel and cultural stages, 
-                David curates rhythmic experiences that balance tradition with cinematic flair. 
-                His studio work spans teaching sessions, live performances, sound explorations, 
-                and cultural storytelling developed for churches, schools, festivals, and creative collectives across Nigeria. 
-                Each project is crafted with precision, cultural respect, 
+                Guided by Yoruba master-drummers and shaped by years on gospel and cultural stages,
+                David curates rhythmic experiences that balance tradition with cinematic flair.
+                His work spans teaching sessions, live performances, sound explorations,
+                and cultural storytelling developed for churches, schools, festivals, and creative collectives across Nigeria.
+                Each project is delivered with precision, cultural respect,
                 and a commitment to preserving the talking drum’s voice for modern audiences.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
-                  <p className="text-xs uppercase tracking-widest text-gray-500">Materials</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500">Approach</p>
                   <p className="text-sm font-semibold text-gray-900">Yoruba drum language · Tonal storytelling · Call-and-response rhythm</p>
                 </div>
                 <div className="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
@@ -113,7 +112,7 @@ export default function Home() {
                 />
               </div>
               <div className="absolute -bottom-6 right-6 rounded-2xl bg-white px-5 py-4 shadow-lg">
-                <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Residency</p>
+                <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Based in</p>
                 <p className="text-lg font-semibold text-gray-900">Lagos state, Nigeria</p>
                 <p className="text-sm text-gray-600">2025</p>
               </div>
@@ -155,20 +154,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Embedded studio reel with overlay CTA */}
+        {/* Embedded video reel with overlay CTA */}
         <section className="relative overflow-hidden border-t-2 border-[rgba(123,36,36,0.92)] bg-white">
           <iframe
             className="h-[420px] w-full object-cover opacity-60"
             src="https://www.youtube.com/embed/8Msa3Vx-_To?autoplay=1&mute=1&loop=1&controls=0&playlist=8Msa3Vx-_To"
-            title="Studio film"
+            title="Performance film"
             allow="autoplay; fullscreen; picture-in-picture"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 to-black/10" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center text-white">
-            <h3 className="text-2xl font-semibold md:text-3xl">Find the art that speaks to you.</h3>
+            <h3 className="text-2xl font-semibold md:text-3xl">Find the rhythm that speaks to you.</h3>
             <p className="max-w-xl text-sm text-white/80">
-              Residency films, live performance clips, and studio walkthroughs updated monthly for curators and art
-              directors.
+              Live performance clips, rehearsal footage, and behind-the-scenes moments updated for press and event
+              bookers.
             </p>
             <Link
               href="/media"

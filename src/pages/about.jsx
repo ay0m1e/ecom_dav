@@ -10,14 +10,7 @@ const bioHighlights = [
   "Workshop host for schools, churches, and cultural spaces",
 ];
 
-// Image set powering the gallery near the bottom of the page.
-const galleryImages = [
-  { src: "/images/pottery-back2.jpg", alt: "Studio session" },
-  { src: "/images/woven-prod9.jpg", alt: "Textile detail" },
-  { src: "/images/paint-prod5.jpg", alt: "Performance close-up" },
-];
-
-// About page walks through the artist bio, gallery proof points, and CTA.
+// About page walks through the artist bio and CTA.
 export default function About() {
   return (
     <div className="bg-[#fafafa] text-gray-900">
@@ -32,7 +25,7 @@ export default function About() {
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">About David</p>
           <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Modern storytelling through ancestral rhythm.</h1>
           <p className="text-base text-white/80 md:text-lg">
-            David Oderinde is a talking-drum performer and cultural educator crafting rhythmic experiences that honour Yoruba heritage while speaking to contemporary audiences across Nigeria.
+            David Oderinde is a talking-drum performer and cultural educator creating rhythmic experiences that honour Yoruba heritage while speaking to contemporary audiences across Nigeria.
           </p>
         </div>
       </section>
@@ -78,34 +71,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Photo Showcase showing studio work and touring moments */}
-      <section className="bg-white px-6 py-16 lg:px-12">
-        <div className="mx-auto max-w-6xl space-y-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Studio Memories</p>
-              <h2 className="text-3xl font-semibold">Craft, residencies, and touring moments.</h2>
-            </div>
-            <p className="max-w-xl text-sm text-gray-600">Captured across churches, cultural festivals, rehearsal rooms, and teaching spaces — each moment reflects David’s commitment to preserving Yoruba rhythm while inspiring the next generation.</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {galleryImages.map((image, index) => (
-              <div key={image.src} className={`rounded-[32px] border border-gray-200 bg-[#fafafa] p-4 shadow-sm ${index === 1 ? "md:translate-y-10" : ""}`}>
-                <div className="relative h-64 overflow-hidden rounded-[24px]">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="(min-width: 1024px) 30vw, 100vw" />
-                </div>
-                <p className="mt-4 text-sm text-gray-600">{image.alt}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action nudging partners to collaborate */}
       <section className="border-t-2 border-[rgba(123,36,36,0.92)] bg-[#fdf9f6] px-6 py-16 text-center lg:px-12">
         <div className="mx-auto max-w-3xl space-y-5">
           <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Collaborate</p>
-          <h2 className="text-3xl font-semibold">Plan a residency, media commission, or limited drop.</h2>
+          <h2 className="text-3xl font-semibold">Plan a performance, media commission, or limited drop.</h2>
           <p className="text-sm text-gray-600">Share your brief and timeline—we respond within 24 hours with concept decks, technical riders, and sample media assets.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

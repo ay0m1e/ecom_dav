@@ -5,28 +5,21 @@ import Image from "next/image";
 // Featured video embeds used in the hero grid.
 const videoFeatures = [
   {
-    id: "residency",
-    title: "Residency Film",
+    id: "performance-film",
+    title: "Performance Film",
     platform: "YouTube",
     src: "https://www.youtube.com/embed/8Msa3Vx-_To?si=V3QkLQhrWc5cfhf5",
-    summary: "Documentary short that follows the National Theatre residency build and opening performance.",
-  },
-  {
-    id: "festival",
-    title: "Festival Recap",
-    platform: "YouTube",
-    src: "https://www.youtube.com/embed/5qap5aO4i9A",
-    summary: "Live improvisation featuring choir stems, synth bass, and responsive LED sculptures.",
+    summary: "Live performance footage from a recent Kay Drumz stage show.",
   },
 ];
 
 // Photo tiles for the mid-page gallery.
 const photoStories = [
-  { id: "atelier", image: "/images/david_photo3.jpg", caption: "Atelier build week · Lagos" },
-  { id: "gallery", image: "/images/david_photo4.jpg", caption: "Gallery install · Shoreditch" },
-  { id: "clinic", image: "/images/david_photo5.jpg", caption: "Percussion clinic · Montreal" },
-  { id: "textile", image: "/images/david_photo6.jpg", caption: "Textile dye baths · Ogun State" },
-  { id: "stage", image: "/images/david_photo7.jpg", caption: "Stage rigging · Berlin" },
+  { id: "drum-build", image: "/images/david_photo3.jpg", caption: "Drum build week · Lagos" },
+  { id: "gallery", image: "/images/david_photo4.jpg", caption: "Behind the scenes" },
+  { id: "clinic", image: "/images/david_photo5.jpg", caption: "Percussion workshop" },
+  { id: "textile", image: "/images/david_photo6.jpg", caption: "Rehearsal session" },
+  { id: "stage", image: "/images/david_photo7.jpg", caption: "Stage rigging" },
   { id: "portrait", image: "/images/david.jpg", caption: "Press portrait · Lagos Island" },
 ];
 
@@ -45,7 +38,7 @@ const audioDrops = [
     description: "Phase-aligned stems captured through analog compressors with cue sheets for DAW sessions.",
   },
   {
-    title: "Residency Soundscape",
+    title: "Live Soundscape",
     length: "15 min · Atmos mix",
     description: "Immersive audio bed interlacing Yoruba proverbs, ambient room tones, and synth swells.",
   },
@@ -72,7 +65,7 @@ export default function Media() {
           <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Films, live sessions, and gallery drops.</h1>
           <p className="text-base text-white/80 md:text-lg">
             Download-ready press assets, stage plot walk-throughs, and documentary snippets curated for music directors,
-            curators, and brand partners.
+            event bookers, and brand partners.
           </p>
         </div>
       </section>
@@ -86,7 +79,7 @@ export default function Media() {
               <h2 className="text-3xl font-semibold">Watch the latest commissions.</h2>
             </div>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="mx-auto grid max-w-2xl gap-8">
             {videoFeatures.map((video) => (
               <article key={video.id} className="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="aspect-video overflow-hidden rounded-3xl border border-gray-100">
@@ -115,7 +108,7 @@ export default function Media() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Photo Stories</p>
-              <h2 className="text-3xl font-semibold">Textures, stages, and patrons.</h2>
+              <h2 className="text-3xl font-semibold">Behind the scenes and on stage.</h2>
             </div>
             <Link href="/contact" className="text-sm font-semibold text-[rgba(123,36,36,0.92)]">
               Request press kit →
@@ -175,14 +168,14 @@ export default function Media() {
           <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Downloads</p>
           <h2 className="text-3xl font-semibold">Need layered audio stems or high-res stills?</h2>
           <p className="text-sm text-gray-600">
-            Share your timeline and technical specs—press and touring partners receive access links within 24 hours.
+            Share your timeline and technical specs—press and event partners receive access links within 24 hours.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="rounded-full bg-[rgba(123,36,36,0.92)] px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-black"
             >
-              Contact studio
+              Contact us
             </Link>
             <Link
               href="/bookings"

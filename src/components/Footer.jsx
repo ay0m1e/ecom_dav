@@ -33,7 +33,7 @@ export default function Footer() {
             <Image src="/icons/footer_logo.png" alt="KayDrumz logo" width={120} height={100} />
             <span className="font-newsreader text-2xl text-gray-900">Kay Drumz.</span>
           </Link>
-          <p className="text-sm text-gray-600">Talking drum portfolio & artisan studio based in Lagos and London.</p>
+          <p className="text-sm text-gray-600">Talking drum portfolio and shop. Lagos, Nigeria.</p>
           <div className="space-y-1 text-sm text-gray-700">
             <p>Email: hello@kaydrumz.com</p>
             <p>Phone: +44 20 7123 0000</p>

@@ -12,7 +12,7 @@ const initialForm = {
   message: "",
 };
 
-// Bookings form page collects inbound inquiries for residencies or shows.
+// Bookings form page collects inbound inquiries for performances or events.
 export default function BookingsPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -68,7 +68,7 @@ export default function BookingsPage() {
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-3xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Bookings</p>
-          <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Plan a residency, show, or workshop.</h1>
+          <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Plan a performance, show, or workshop.</h1>
           <p className="text-base text-white/80 md:text-lg">
             Share your brief, desired dates, and venue details. We respond within 24 hours with availability, technical riders, and sample media assets.
           </p>
@@ -131,9 +131,9 @@ export default function BookingsPage() {
                 onChange={handleChange("eventType")}
               >
                 <option>Immersive stage show</option>
-                <option>Residency / workshop</option>
-                <option>Studio session / recording</option>
-                <option>Gallery or film collaboration</option>
+                <option>Performance / workshop</option>
+                <option>Recording session</option>
+                <option>Film or media collaboration</option>
               </select>
             </label>
             <label className="text-sm text-gray-600">

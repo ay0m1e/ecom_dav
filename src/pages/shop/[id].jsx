@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { products, formatPrice } from "@/data/products";
 
-// WhatsApp number placeholder — replace with the studio's real number before launch.
+// WhatsApp number placeholder — replace with the real number before launch.
 const WHATSAPP_NUMBER = "PHONE_PLACEHOLDER";
 
 // Every product is statically known ahead of time, so paths are generated from the data file.

@@ -16,7 +16,7 @@ export default function ShopPage() {
         <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Kay Drumz Shop</p>
-          <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Limited runs handcrafted in Lagos & London.</h1>
+          <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Limited runs, handmade in Lagos.</h1>
           <p className="text-base text-white/80 md:text-lg">
             Handmade Yoruba talking drums, sticks, and build components — carved, roped, and finished in Lagos.
             Each piece ships with care and can be built to order.
@@ -33,7 +33,7 @@ export default function ShopPage() {
               <h2 className="text-3xl font-semibold">Shop the current drop.</h2>
             </div>
             <p className="max-w-xl text-sm text-gray-600">
-              Every release is crafted in micro batches and shipped worldwide with insured delivery. Requests for sold-out
+              Every release is made in micro batches and shipped worldwide with insured delivery. Requests for sold-out
               items can be submitted via the bookings page.
             </p>
           </div>

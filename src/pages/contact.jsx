@@ -8,7 +8,7 @@ const initialForm = { name: "", email: "", subject: "", message: "" };
 // Quick lists that populate the contact cards on the page.
 const contactLinks = [
   {
-    title: "Studio",
+    title: "Location",
     lines: ["Kay Drumz", "Rush Green Campus, Dagenham", "Lagos Studio · Victoria Island"],
   },
   {
@@ -27,10 +27,10 @@ const socials = [
   // TODO: replace with the real TikTok URL once confirmed.
   { name: "TikTok", handle: "@talkingdrummer", href: "#" },
   // TODO: replace with the real YouTube URL once confirmed.
-  { name: "YouTube", handle: "Kay Drumz Studio", href: "#" },
+  { name: "YouTube", handle: "Kay Drumz", href: "#" },
 ];
 
-// Contact page combines hero, inquiry form, and supplemental studio info.
+// Contact page combines hero, inquiry form, and supplemental contact info.
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -87,7 +87,7 @@ export default function ContactPage() {
         <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-amber-300">Contact</p>
           <h1 className="font-newsreader text-4xl leading-tight md:text-5xl">Let’s plan your next experience.</h1>
-          <p className="text-base text-white/80 md:text-lg">Reach out for commissions, residencies, collaborations, or press materials.</p>
+          <p className="text-base text-white/80 md:text-lg">Reach out for commissions, performances, collaborations, or press materials.</p>
         </div>
       </section>
 
@@ -151,11 +151,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Supplemental studio + social details */}
+      {/* Supplemental contact + social details */}
       <section className="bg-white px-6 pb-16 lg:px-12">
         <div className="mx-auto max-w-6xl grid gap-8 md:grid-cols-2">
           <div className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Studio Details</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Contact Details</p>
             <div className="grid gap-6 sm:grid-cols-2">
               {contactLinks.map((info) => (
                 <div key={info.title} className="rounded-[28px] border border-gray-200 bg-[#fafafa] p-5 shadow-sm">
@@ -172,7 +172,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Join the journey</p>
             <div className="rounded-[28px] border border-gray-200 bg-[#fafafa] p-6 shadow-sm">
-              <p className="text-sm text-gray-600">Follow for live session drops, behind-the-scenes clips, and residency announcements.</p>
+              <p className="text-sm text-gray-600">Follow for live session drops, behind-the-scenes clips, and performance announcements.</p>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
                 {socials.map((social) => (
                   <li key={social.name} className="flex items-center justify-between">
