@@ -1,9 +1,13 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const ENQUIRY_TYPES = ["Solo talking drum", "Klassic Band", "Other"];
+
 const initialForm = {
+  enquiryType: "Solo talking drum",
   name: "",
   email: "",
   phone: "",
@@ -11,6 +15,34 @@ const initialForm = {
   eventType: "Immersive stage show",
   message: "",
 };
+
+// TODO: confirm the year Klassic Band formed before launch.
+const KLASSIC_BAND_FORMED_YEAR = 2021;
+
+// Renders a band photo, but degrades to a plain placeholder (no broken-image
+// icon, no layout shift) if the file hasn't been dropped into public/ yet.
+function BandPhoto({ src, alt }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div className="relative h-56 overflow-hidden rounded-[28px] border border-gray-200 bg-[#fafafa]">
+      {!failed ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="(min-width: 1024px) 20vw, 50vw"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center px-4 text-center text-xs uppercase tracking-[0.4em] text-gray-400">
+          Photo coming soon
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Bookings form page collects inbound inquiries for performances or events.
 export default function BookingsPage() {
@@ -20,6 +52,10 @@ export default function BookingsPage() {
 
   const handleChange = (field) => (event) => {
     setForm((prev) => ({ ...prev, [field]: event.target.value }));
+  };
+
+  const handleSelectEnquiryType = (enquiryType) => () => {
+    setForm((prev) => ({ ...prev, enquiryType }));
   };
 
   const validate = () => {
@@ -75,11 +111,53 @@ export default function BookingsPage() {
         </div>
       </section>
 
+      {/* Klassic Band: a second bookable act alongside David's solo talking-drum bookings */}
+      <section className="bg-white px-6 py-16 lg:px-12">
+        <div className="mx-auto max-w-6xl space-y-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">Also Available</p>
+            <h2 className="text-3xl font-semibold">Klassic Band.</h2>
+          </div>
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="space-y-4">
+              <p className="text-base text-gray-600">
+                Klassic Band is David's live band, performing primarily gospel music with the flexibility to
+                cover other genres depending on the event. Formed in {KLASSIC_BAND_FORMED_YEAR}, the band is
+                available to book alongside David's solo talking-drum performances.
+              </p>
+              <a
+                href="#booking-form"
+                onClick={handleSelectEnquiryType("Klassic Band")}
+                className="inline-flex rounded-full bg-[rgba(123,36,36,0.92)] px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-black"
+              >
+                Book Klassic Band
+              </a>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <BandPhoto src="/images/band/band-1.jpeg" alt="Klassic Band" />
+              <BandPhoto src="/images/band/band-2.jpeg" alt="Klassic Band" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Form container */}
-      <section className="px-6 py-16 lg:px-12">
+      <section id="booking-form" className="px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-4xl rounded-[36px] border border-gray-200 bg-white p-8 shadow-lg">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Booking Request</p>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+            <label className="block text-sm text-gray-600">
+              I'm booking
+              <select
+                className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm focus:outline-none"
+                value={form.enquiryType}
+                onChange={handleChange("enquiryType")}
+              >
+                {ENQUIRY_TYPES.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
+              </select>
+            </label>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="text-sm text-gray-600">
                 Name
@@ -108,7 +186,7 @@ export default function BookingsPage() {
                 <input
                   type="tel"
                   className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm focus:outline-none"
-                  placeholder="+44 207 000 0000"
+                  placeholder="+234 801 234 5678"
                   value={form.phone}
                   onChange={handleChange("phone")}
                 />

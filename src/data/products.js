@@ -24,7 +24,7 @@ export const products = [
   },
   {
     id: "talking-drum-sticks",
-    name: "Kongo Drum Sticks (Set)",
+    name: "Talking Drum Sticks (Set)",
     price: null,
     currency: "NGN",
     category: "accessories",
@@ -37,12 +37,12 @@ export const products = [
   },
   {
     id: "carved-drum-shell",
-    name: "Hand-Carved Drum Shell",
+    name: "Machine-Carved Drum Shell",
     price: null,
     currency: "NGN",
     category: "components",
     description:
-      "A raw, hand-carved gangan shell for drummers building or re-skinning their own instrument. Shaped from a single piece of wood and left unfinished so you can take it straight into your own build.",
+      "A raw, machine-carved gangan shell for drummers building or re-skinning their own instrument. Shaped from a single piece of wood and left unfinished so you can take it straight into your own build.",
     images: ["/images/products/carved-drum-shell.jpeg"],
     available: true,
     purchaseType: "enquire",
@@ -50,7 +50,7 @@ export const products = [
   },
   {
     id: "finished-drum-shell-rimmed",
-    name: "Finished Shell with Leather Rims",
+name: "Finished  (Odo) with Leather Rims (Egi)",
     price: null,
     currency: "NGN",
     category: "components",
@@ -63,7 +63,7 @@ export const products = [
   },
   {
     id: "roped-drum-build",
-    name: "Roped Drum (In-Build)",
+    name: "Talking Drum String (In-Build)",
     price: null,
     currency: "NGN",
     category: "components",

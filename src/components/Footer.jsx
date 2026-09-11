@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from "@/data/contact";
 
 // Repeat the top-level navigation so visitors can move around from the footer.
 const navLinks = [
@@ -35,8 +36,8 @@ export default function Footer() {
           </Link>
           <p className="text-sm text-gray-600">Talking drum portfolio and shop. Lagos, Nigeria.</p>
           <div className="space-y-1 text-sm text-gray-700">
-            <p>Email: hello@kaydrumz.com</p>
-            <p>Phone: +44 20 7123 0000</p>
+            <p>Email: {CONTACT_EMAIL}</p>
+            <p>Phone: {CONTACT_PHONE_DISPLAY}</p>
           </div>
         </div>
 

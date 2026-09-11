@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, LOCATION } from "@/data/contact";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -9,15 +10,15 @@ const initialForm = { name: "", email: "", subject: "", message: "" };
 const contactLinks = [
   {
     title: "Location",
-    lines: ["Kay Drumz", "Rush Green Campus, Dagenham", "Lagos Studio · Victoria Island"],
+    lines: ["Kay Drumz", LOCATION],
   },
   {
     title: "Email",
-    lines: ["hello@kaydrumz.com", "press@kaydrumz.com"],
+    lines: [CONTACT_EMAIL],
   },
   {
     title: "Phone",
-    lines: ["UK +44 20 7123 0000", "NG +234 809 000 0000"],
+    lines: [CONTACT_PHONE_DISPLAY],
   },
 ];
 

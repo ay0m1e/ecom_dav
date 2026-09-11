@@ -2,9 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { products, formatPrice } from "@/data/products";
-
-// WhatsApp number placeholder — replace with the real number before launch.
-const WHATSAPP_NUMBER = "PHONE_PLACEHOLDER";
+import { WHATSAPP_NUMBER } from "@/data/contact";
 
 // Every product is statically known ahead of time, so paths are generated from the data file.
 export function getStaticPaths() {
