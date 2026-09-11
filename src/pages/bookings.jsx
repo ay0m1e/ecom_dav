@@ -31,7 +31,7 @@ function BandPhoto({ src, alt }) {
           src={src}
           alt={alt}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="(min-width: 1024px) 20vw, 50vw"
           onError={() => setFailed(true)}
         />
