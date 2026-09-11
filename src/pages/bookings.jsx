@@ -134,8 +134,8 @@ export default function BookingsPage() {
               </a>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <BandPhoto src="/images/band/band-1.jpeg" alt="Klassic Band" />
-              <BandPhoto src="/images/band/band-2.jpeg" alt="Klassic Band" />
+              <BandPhoto src="/images/klassic1.jpeg" alt="Klassic Band" />
+              <BandPhoto src="/images/klassic2.jpeg" alt="Klassic Band" />
             </div>
           </div>
         </div>
