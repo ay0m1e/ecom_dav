@@ -15,12 +15,12 @@ const videoFeatures = [
 
 // Photo tiles for the mid-page gallery.
 const photoStories = [
-  { id: "drum-build", image: "/images/david_photo3.jpg", caption: "Drum build week · Lagos" },
-  { id: "gallery", image: "/images/david_photo4.jpg", caption: "Behind the scenes" },
-  { id: "clinic", image: "/images/david_photo5.jpg", caption: "Percussion workshop" },
-  { id: "textile", image: "/images/david_photo6.jpg", caption: "Rehearsal session" },
-  { id: "stage", image: "/images/david_photo7.jpg", caption: "Stage rigging" },
-  { id: "portrait", image: "/images/david.jpg", caption: "Press portrait · Lagos Island" },
+  { id: "drum-build", image: "/images/img1.jpeg", caption: "Drum build week · Lagos" },
+  { id: "gallery", image: "/images/img2.jpeg", caption: "Behind the scenes" },
+  { id: "clinic", image: "/images/img3.jpeg", caption: "Percussion workshop" },
+  { id: "textile", image: "/images/img4.jpeg", caption: "Rehearsal session" },
+  { id: "stage", image: "/images/img5.jpeg", caption: "Stage rigging" },
+  { id: "portrait", image: "/images/img6.jpeg", caption: "Press portrait · Lagos Island" },
 ];
 
 // Custom object-position tweaks for specific images to reveal more of the frame.
