@@ -5,11 +5,16 @@ import Image from "next/image";
 // Featured video embeds used in the hero grid.
 const videoFeatures = [
   {
-    id: "performance-film",
-    title: "Performance Film",
-    platform: "YouTube",
-    src: "https://www.youtube.com/embed/8Msa3Vx-_To?si=V3QkLQhrWc5cfhf5",
-    summary: "Live performance footage from a recent Kay Drumz stage show.",
+    id: "reel-1",
+    title: "Instagram Reel",
+    platform: "Instagram",
+    src: "https://www.instagram.com/reel/DOoVXaxDUPd/embed",
+  },
+  {
+    id: "reel-2",
+    title: "Instagram Reel",
+    platform: "Instagram",
+    src: "https://www.instagram.com/reel/DdZkVzzNQy_/embed",
   },
 ];
 
@@ -79,10 +84,10 @@ export default function Media() {
               <h2 className="text-3xl font-semibold">Watch the latest commissions.</h2>
             </div>
           </div>
-          <div className="mx-auto grid max-w-2xl gap-8">
+          <div className="mx-auto grid max-w-3xl gap-8 sm:grid-cols-2">
             {videoFeatures.map((video) => (
               <article key={video.id} className="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="aspect-video overflow-hidden rounded-3xl border border-gray-100">
+                <div className="aspect-[9/16] overflow-hidden rounded-3xl border border-gray-100">
                   <iframe
                     src={video.src}
                     title={video.title}
@@ -94,7 +99,7 @@ export default function Media() {
                 <div className="mt-4 space-y-1">
                   <p className="text-xs uppercase tracking-[0.4em] text-[rgba(123,36,36,0.92)]">{video.platform}</p>
                   <h3 className="text-xl font-semibold text-gray-900">{video.title}</h3>
-                  <p className="text-sm text-gray-600">{video.summary}</p>
+                  {video.summary && <p className="text-sm text-gray-600">{video.summary}</p>}
                 </div>
               </article>
             ))}
@@ -117,7 +122,7 @@ export default function Media() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {photoStories.map((story) => (
               <figure key={story.id} className="rounded-[30px] border border-gray-200 bg-[#fafafa] shadow-sm">
-                <div className="relative h-72 overflow-hidden rounded-t-[30px]">
+                <div className="relative h-72 overflow-hidden rounded-[30px]">
                   <Image
                     src={story.image}
                     alt={story.caption}
@@ -127,7 +132,6 @@ export default function Media() {
                     style={storyImageFocus[story.id] ? { objectPosition: storyImageFocus[story.id] } : undefined}
                   />
                 </div>
-                <figcaption className="px-4 py-4 text-sm text-gray-700">{story.caption}</figcaption>
               </figure>
             ))}
           </div>
